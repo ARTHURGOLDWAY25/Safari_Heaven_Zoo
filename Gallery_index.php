@@ -79,14 +79,7 @@
                                 Events
                             </a>
                             <ul class="dropdown-menu dropdown_events" aria-labelledby="navbarDropdownMenuLink4">
-                                <li><a class="dropdown-item" href="#">Animal Feeding Sessions</a></li>
-                                <li><a class="dropdown-item" href="#">Keeper Talks</a></li>
-                                <li><a class="dropdown-item" href="#">Safari Nights</a></li>
-                                <li><a class="dropdown-item" href="#">Conservation Workshops</a></li>
-                                <li><a class="dropdown-item" href="#">Family Days</a></li>
-                                <li><a class="dropdown-item" href="#">Seasonal Events</a></li>
-                                <li><a class="dropdown-item" href="#">Behind-the-Scenes Tours</a></li>
-                                <li><a class="dropdown-item" href="#">Animal Encounters</a></li>
+                                <li><a class="dropdown-item" href="./Visitor-Feedback/Visitor_Feedback-index.html">Visitor Feedback</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -100,76 +93,128 @@
 
 <!-- main container -->
 <main>
-    <div class="col-md-4 container">
-        <h4>meet our animals</h4>
+    <div class="container">
+        <h4>Meet Our Animals</h4>
+        <!-- Row 1 -->
         <div class="row">
             <div class="multi-column-text">
                 <img src="./images/gallery-lion.jpg" alt="gallery-lion" id="gallery-lion">
                 <p>Experience the majesty of Panthera leos from Sub-Saharan Africa in our exclusive gallery, showcasing their strength, beauty, and social dynamics in the wild.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="lion">
+                    <button type="submit" id="button" data-animal="lion">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/turtle.jpg" alt="" id="gallery-turtle">
                 <p>Meet the Yellow-spotted Amazon River Turtle, known for its striking yellow spots and unique shell pattern. Found in the Amazon River basin, these turtles play a crucial role in their ecosystem, contributing to biodiversity and aquatic health.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="turtle">
+                    <button type="submit" id="button" data-animal="turtle">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/elephant.jpg" alt="" id="gallery-elephant">
                 <p>Discover the grandeur of the African Elephant, the largest land mammal, in our exhibit. Learn about their social behavior, intelligence, and the conservation efforts focused on preserving their habitats.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="elephant">
+                    <button type="submit" id="button" data-animal="elephant">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/gallery-penguin.jpg" alt="" id="gallery-penguin">
                 <p>Meet the African Penguin (Spheniscus demersus), native to the coasts of South Africa, Namibia, and Mozambique. Discover their unique behaviors and the conservation efforts to protect their dwindling populations.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="penguin">
+                    <button type="submit" id="button" data-animal="penguin">Learn More</button>
+                </form>
             </div>
         </div>
+
+        <!-- Row 2 -->
         <div class="row">
             <div class="multi-column-text">
                 <img src="./images/event-dolphin.jpg" alt="" id="gallery-dolphin">
                 <p>Explore the world of dolphins, renowned for their intelligence, playful nature, and remarkable communication skills. Learn about their habitats, behaviors, and the conservation efforts to protect these incredible marine mammals.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="dolphin">
+                    <button type="submit" id="button" data-animal="dolphin">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/gallery-buterfly.jpg" alt="" id="gallery-butterfly">
                 <p>Discover the enchanting beauty of butterflies, known for their vibrant colors and delicate wings. Learn about their life cycle, habitats, and the vital role they play in pollination and maintaining biodiversity.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="butterfly">
+                    <button type="submit" id="button" data-animal="butterfly">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/gallery-gorilla.jpg" alt="" id="gallery-gorilla">
                 <p>Encounter the majestic African gorilla, known for its powerful build and gentle nature. Native to the dense forests of central Africa, gorillas are vital to their ecosystems, contributing to forest regeneration and biodiversity.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="gorilla">
+                    <button type="submit" id="button" data-animal="gorilla">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/gallery-owl.jpg" alt="" id="gallery-owl">
                 <p>Discover the enigmatic Bubo scandiacus, a majestic owl found in the northern regions of Russia, Fennoscandia, Canada, Alaska, Iceland, Greenland, and northern Asia. Known for its striking white plumage and silent flight, this owl is a master of nocturnal hunting.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="owl">
+                    <button type="submit" id="button" data-animal="owl">Learn More</button>
+                </form>
             </div>
         </div>
+
+        <!-- Row 3 -->
         <div class="row">
             <div class="multi-column-text">
                 <img src="./images/snake.jpg" alt="" id="gallery-snake">
                 <p>Meet the Python sebae, a fascinating snake native to Sub-Saharan Africa. Known for its impressive size and distinctive patterns, this python is a powerful constrictor and a key species in its ecosystem.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="snake">
+                    <button type="submit" id="button" data-animal="snake">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/giraffe.jpg" alt="" id="gallery-giraffe">
                 <p>Discover the Giraffa camelopardalis, an iconic animal of Sub-Saharan Africa. Renowned for its long neck and legs, the giraffe is a gentle giant, gracefully browsing treetops and contributing to the savanna's ecological balance.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="giraffe">
+                    <button type="submit" id="button" data-animal="giraffe">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/leopard.jpg" alt="" id="gallery-leopard">
                 <p>Meet the Panthera uncia, a magnificent leopard species found in Central Asia. Known for its stunning coat and stealthy nature, this elusive predator thrives in rugged terrains, playing a crucial role in maintaining ecological balance.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="leopard">
+                    <button type="submit" id="button" data-animal="leopard">Learn More</button>
+                </form>
             </div>
+
             <div class="multi-column-text">
                 <img src="./images/zebra.jpg" alt="" id="gallery-zebra">
                 <p>Discover the Equus grevyi, also known as Grevy's zebra, found in Kenya and Ethiopia. Distinguished by its narrow stripes and large ears, this unique zebra species plays a vital role in its ecosystem, contributing to the biodiversity of the region.</p>
-                <button id="button">learn more</button>
+                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                    <input type="hidden" name="animal" value="zebra">
+                    <button type="submit" id="button" data-animal="zebra">Learn More</button>
+                </form>
             </div>
         </div>
     </div>
 </main>
+
+
 
     
     <!-- footer -->
@@ -228,5 +273,9 @@
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <!-- Your Custom JS -->
     <script src="js/scripts.js"></script>
+
+
+    <!-- custom ajax backend increment -->
+     <script src="./AJAX_BACKEND/ajax_increment_backend.js"></script>
 </body>
 </html>
