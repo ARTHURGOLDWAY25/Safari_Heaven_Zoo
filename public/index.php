@@ -23,7 +23,7 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Custom Styles -->
-    <link href="./css/styles_index.css" rel="stylesheet">
+    <link href="../css/styles_index.css" rel="stylesheet">
 </head>
 <body>
     <!-- header -->
