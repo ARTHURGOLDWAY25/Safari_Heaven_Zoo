@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="../Visitor-Feedback/Visitor_Feedback-index.html">Go to the project page</a>
+    <a href="./index2.php">Go to the project page</a>
 </body>
 </html>
 
