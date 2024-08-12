@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <a href="/contact.html">Go to the project page</a>
+    <a href="/index.html">Go to the project page</a>
 </body>
 </html>
 
