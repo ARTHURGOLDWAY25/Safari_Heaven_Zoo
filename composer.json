@@ -1,0 +1,16 @@
+{
+    "name": "vendor/zoo-project",
+    "description": "A simple PHP project for the zoo management system",
+    "autoload": {
+        "psr-4": {
+            "Vendor\\ZooProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "ARTHURGOLDWAY25",
+            "email": "galexport08@gmail.com"
+        }
+    ],
+    "require": {}
+}
