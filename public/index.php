@@ -10,7 +10,7 @@ ini_set('display_errors', 1);
 </head>
 <body>
     <h1>Welcome to the Zoo Project</h1>
-    <a href="/contact.html">Go to the project page</a>
+    <a href="/DISPLAYFLEXFOOTER/">Go to the project page</a>
 </body>
 </html>
 
