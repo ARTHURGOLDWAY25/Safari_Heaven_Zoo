@@ -11,7 +11,8 @@ $welcomeMessage = "Welcome to the Zoo Project";
     <h1><?php echo $welcomeMessage; ?></h1>
     <p>This is your Zoo Project application.</p>
     <!-- Include HTML content from a file -->
-    <a href="/conservation-efforts.html">Go to the project page</a>
+    <a href="/index.html">Go to the project page</a>
+
 
 </body>
 </html>
