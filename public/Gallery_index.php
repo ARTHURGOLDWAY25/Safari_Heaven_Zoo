@@ -187,7 +187,7 @@
             <div class="multi-column-text">
                 <img src="./images/giraffe.jpg" alt="" id="gallery-giraffe">
                 <p>Discover the Giraffa camelopardalis, an iconic animal of Sub-Saharan Africa. Renowned for its long neck and legs, the giraffe is a gentle giant, gracefully browsing treetops and contributing to the savanna's ecological balance.</p>
-                <form action="./MONGODB_SCHEMA/increment.php" method="post">
+                <form action="../MONGODB_SCHEMA/increment.php" method="post">
                     <input type="hidden" name="animal" value="giraffe">
                     <button type="submit" id="button" data-animal="giraffe">Learn More</button>
                 </form>
