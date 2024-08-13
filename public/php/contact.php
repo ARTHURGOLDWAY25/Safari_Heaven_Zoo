@@ -1,13 +1,22 @@
 <?php
+// Get the JAWSDB_URL environment variable
+$db_url = getenv('JAWSDB_URL'); 
 
-$servername = 'localhost';
-$dbname = 'contact_zoo';
-$username = 'root';
-$userpassword = 'root';
+// Parse the URL into its components
+$db_parts = parse_url($db_url);
+
+$host = $db_parts['host'];
+$port = $db_parts['port'];
+$user = $db_parts['user'];
+$pass = $db_parts['pass'];
+$path = ltrim($db_parts['path'], '/');
+
+// Create a DSN (Data Source Name) for PDO
+$dsn = "mysql:host=$host;port=$port;dbname=$path;charset=utf8mb4";
 
 try {
-    // create new PDO instance
-    $pdo = new PDO("mysql:host=$servername;dbname=$dbname", $username, $userpassword);
+    // Create new PDO instance
+    $pdo = new PDO($dsn, $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -18,7 +27,7 @@ try {
         $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_SPECIAL_CHARS);
         $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_SPECIAL_CHARS);
 
-        // validate correct email format
+        // Validate correct email format
         if ($email == false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo "Please enter valid email to submit.";
         } else {
