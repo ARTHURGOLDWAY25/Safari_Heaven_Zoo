@@ -10,7 +10,7 @@ echo "Successfully navigated.";
     <title>Document</title>
 </head>
 <body>
-    <a href="/test.php">Now go to test page</a>
+    <a href="./index.html">Now go to test page</a>
     
 </body>
 </html>
