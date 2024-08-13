@@ -1,12 +1,12 @@
 <?php
-// Get the JAWSDB_URL environment variable
-$db_url = getenv('JAWSDB_URL'); 
+// Retrieve the DATABASE_URL from Heroku config vars
+$db_url = getenv('JAWSDB_URL');
 
-// Parse the URL into its components
+// Parse the DATABASE_URL
 $db_parts = parse_url($db_url);
 
 $host = $db_parts['host'];
-$port = $db_parts['port'];
+$port = isset($db_parts['port']) ? $db_parts['port'] : 3306; // Default MySQL port is 3306
 $user = $db_parts['user'];
 $pass = $db_parts['pass'];
 $path = ltrim($db_parts['path'], '/');
@@ -18,6 +18,8 @@ try {
     // Create new PDO instance
     $pdo = new PDO($dsn, $user, $pass);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    echo "Connected successfully";
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -29,7 +31,7 @@ try {
 
         // Validate correct email format
         if ($email == false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Please enter valid email to submit.";
+            echo "Please enter a valid email to submit.";
         } else {
             $sql_check = "SELECT COUNT(*) FROM contact_zoo WHERE email_contact = :email_contact";
             $stmt_check = $pdo->prepare($sql_check);
@@ -66,4 +68,5 @@ try {
     echo "Connection to server failed: " . $e->getMessage();
 }
 ?>
+
 
