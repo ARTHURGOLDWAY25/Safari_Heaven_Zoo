@@ -20,7 +20,7 @@ try {
 
         // validate correct email format
         if ($email == false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Please enter valid data to submit.";
+            echo "Please enter valid email to submit.";
         } else {
             $sql_check = "SELECT COUNT(*) FROM contact_zoo WHERE email_contact = :email_contact";
             $stmt_check = $pdo->prepare($sql_check);
