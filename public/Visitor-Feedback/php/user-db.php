@@ -4,7 +4,10 @@ use MongoDB\Client;
 
 require 'vendor/autoload.php';
 
-$client = new Client("mongodb://localhost:27017");
+// Get MongoDB URI from environment variable
+$mongo_uri = getenv('MONGODB_URI');
+
+$client = new Client($mongo_uri);
 $db = $client->user_feedback;
 $collection = $db->users;
 
@@ -41,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } else {
     echo "Invalid request method";
 }
+
 ?>
 
 
