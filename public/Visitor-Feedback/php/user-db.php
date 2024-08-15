@@ -24,7 +24,7 @@ try {
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
     $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
-    $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_STRING);  // Updated sanitization
+    $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_SPECIAL_CHARS);  
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
     if ($email === false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
