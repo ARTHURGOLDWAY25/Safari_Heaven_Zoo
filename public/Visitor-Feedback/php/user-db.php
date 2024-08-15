@@ -5,7 +5,6 @@ use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
 
-
 // Load environment variables
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -13,14 +12,19 @@ $dotenv->load();
 // Get MongoDB URI from environment variable
 $mongo_uri = getenv('MONGODB_URI');
 
-$client = new Client($mongo_uri);
-$db = $client->user_feedback;
-$collection = $db->users;
+try {
+    $client = new Client($mongo_uri);
+    $db = $client->user_feedback;
+    $collection = $db->users;
+} catch (Exception $e) {
+    echo 'Error connecting to MongoDB: ', $e->getMessage(), "\n";
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
     $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
-    $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_SPECIAL_CHARS);
+    $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_STRING);  // Updated sanitization
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
     if ($email === false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -52,5 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+
 
 
