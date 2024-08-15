@@ -1,8 +1,14 @@
 <?php
 
 use MongoDB\Client;
+use Dotenv\Dotenv;
 
 require 'vendor/autoload.php';
+
+
+// Load environment variables
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 // Get MongoDB URI from environment variable
 $mongo_uri = getenv('MONGODB_URI');
