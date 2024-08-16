@@ -1,19 +1,27 @@
 <?php
 
 use MongoDB\Client;
-
+use Dotenv\Dotenv;
 
 // Include Composer's autoload file
-require 'vendor/autoload.php'; // Adjust if needed
+require 'vendor/autoload.php'; // Ensure this path is correct
 
+// Load environment variables from .env file in the same directory
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
+// Get MongoDB URI from environment variable
+$mongo_uri = getenv('MONGODB_URI');
+if ($mongo_uri === false) {
+    die('MongoDB URI is not set in the environment file.');
+}
 
 // Connect to MongoDB
-$client = new Client("mongodb+srv://galexport08:zZdWBtdOeXG6bg2M@zoo-project-cluster.qvl73.mongodb.net/user_feedback?retryWrites=true&w=majority");
+$client = new Client("mongodb+srv://galexport08:zZdWBtdOeXG6bg2M@zoo-project-cluster.qvl73.mongodb.net/user_feedback?retryWrites=true&w=majority"); // Use the URI from the environment variable
 
 // Select the database and collection
-$db = $client->user_feedback; // This should match the database name you intend to use
-$collection = $db->users;     // This should match the collection name you intend to use
+$db = $client->user_feedback; // Match the database name you intend to use
+$collection = $db->users;     // Match the collection name you intend to use
 
 // Handle POST requests
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -51,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+
 
 
 
