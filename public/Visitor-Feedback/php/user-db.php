@@ -17,7 +17,7 @@ if ($mongo_uri === false) {
 }
 
 // Connect to MongoDB
-$client = new Client($mongo_uri);
+$client = new Client("mongodb+srv://galexport08:zZdWBtdOeXG6bg2M@zoo-project-cluster.qvl73.mongodb.net/user_feedback?retryWrites=true&w=majority");
 
 // Select the database and collection
 $db = $client->user_feedback; // This should match the database name you intend to use
