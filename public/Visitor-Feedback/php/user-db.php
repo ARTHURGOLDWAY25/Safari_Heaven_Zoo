@@ -4,7 +4,7 @@ use MongoDB\Client;
 use Dotenv\Dotenv;
 
 // Adjust path to vendor/autoload.php from your script location
-require __DIR__ . '/../../../../vendor/autoload.php'; 
+require 'vendor/autoload.php'; 
 
 // Load environment variables
 $dotenv = Dotenv::createImmutable(__DIR__ . '/../../../../');

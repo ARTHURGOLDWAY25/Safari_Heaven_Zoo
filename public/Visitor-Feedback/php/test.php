@@ -24,5 +24,8 @@ if ($insertUser->getInsertedCount() === 1) {
 } else {
     echo "New user cannot be added to the database";
 }
+?>
+
+
 
 
