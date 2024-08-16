@@ -1,20 +1,12 @@
 <?php
 
 use MongoDB\Client;
-use Dotenv\Dotenv;
+
 
 // Include Composer's autoload file
 require 'vendor/autoload.php'; // Adjust if needed
 
-// Load environment variables from .env file in the same directory
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
-// Get MongoDB URI from environment variable
-$mongo_uri = getenv('MONGODB_URI');
-if ($mongo_uri === false) {
-    die('MongoDB URI is not set in the environment file.');
-}
 
 // Connect to MongoDB
 $client = new Client("mongodb+srv://galexport08:zZdWBtdOeXG6bg2M@zoo-project-cluster.qvl73.mongodb.net/user_feedback?retryWrites=true&w=majority");
