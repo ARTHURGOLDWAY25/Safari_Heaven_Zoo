@@ -3,25 +3,27 @@
 use MongoDB\Client;
 use Dotenv\Dotenv;
 
-// Adjust path to vendor/autoload.php from your script location
-require 'vendor/autoload.php'; 
+// Include Composer's autoload file
+require 'vendor/autoload.php'; // Adjust if needed
 
-// Load environment variables
-$dotenv = Dotenv::createImmutable(__DIR__ );
+// Load environment variables from .env file in the same directory
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 // Get MongoDB URI from environment variable
 $mongo_uri = getenv('MONGODB_URI');
-
-try {
-    $client = new Client($mongo_uri);
-    $db = $client->user_feedback;
-    $collection = $db->users;
-} catch (Exception $e) {
-    echo 'Error connecting to MongoDB: ', $e->getMessage(), "\n";
-    exit;
+if ($mongo_uri === false) {
+    die('MongoDB URI is not set in the environment file.');
 }
 
+// Connect to MongoDB
+$client = new Client($mongo_uri);
+
+// Select the database and collection
+$db = $client->user_feedback; // This should match the database name you intend to use
+$collection = $db->users;     // This should match the collection name you intend to use
+
+// Handle POST requests
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
     $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -57,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+
 
 
 
