@@ -3,10 +3,11 @@
 use MongoDB\Client;
 use Dotenv\Dotenv;
 
-require 'vendor/autoload.php';
+// Adjust path to vendor/autoload.php from your script location
+require __DIR__ . '/../../../../vendor/autoload.php'; 
 
 // Load environment variables
-$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__ . '/../../../../');
 $dotenv->load();
 
 // Get MongoDB URI from environment variable
@@ -56,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 ?>
+
 
 
 
