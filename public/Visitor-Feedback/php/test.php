@@ -8,7 +8,7 @@ require "vendor/autoload.php"; // Ensure this path is correct
 $client = new Client("mongodb+srv://galexport08:zZdWBtdOeXG6bg2M@zoo-project-cluster.qvl73.mongodb.net/user_feedback?retryWrites=true&w=majority");
 
 // Select the database and collection
-$db = $client->user_feedback; // This should match the database name you intend to use
+$db = $client->database; // This should match the database name you intend to use
 $collection = $db->users; // This should match the collection name you intend to use
 
 // Insert a test user
