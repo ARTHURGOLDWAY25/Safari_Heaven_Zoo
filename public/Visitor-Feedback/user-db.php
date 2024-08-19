@@ -4,7 +4,8 @@ use MongoDB\Client;
 use Dotenv\Dotenv;
 
 // Include Composer's autoload file
-require __DIR__ . '/../vendor/autoload.php'; 
+require __DIR__ . '/../../vendor/autoload.php';
+; 
 
 // Directly specify the MongoDB URI for testing
 $mongoUri = 'mongodb+srv://galexport08:zZdWBtdOeXG6bg2M@zoo-project-cluster.qvl73.mongodb.net/user_feedback?retryWrites=true&w=majority';
