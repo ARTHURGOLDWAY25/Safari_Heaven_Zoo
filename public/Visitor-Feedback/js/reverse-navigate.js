@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     const currentPath = window.location.pathname;
 
                     // Determine current project based on URL
-                    const currentProject = currentPath.includes("Visitor_Feedback-index.html")
+                    const currentProject = currentPath.includes("Visitor_Feedback-index.php")
                         ? "Visitor-Feedback"
                         : "ZOO_PROJECT";
 
