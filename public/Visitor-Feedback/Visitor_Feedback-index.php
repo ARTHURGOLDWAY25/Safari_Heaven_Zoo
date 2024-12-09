@@ -167,10 +167,13 @@
 
 <script>
     // JS to reload and empty fields
-    window.onload = function() {
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        // Reset the form when the DOM is fully loaded
         document.querySelector('.user-feedback-form').reset();
-        
-    }
+    });
+
+
 </script>
 
 <script src="./js/reverse-navigate.js"></script>

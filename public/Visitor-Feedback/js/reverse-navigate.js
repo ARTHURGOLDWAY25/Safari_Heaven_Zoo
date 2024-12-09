@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Determine current project based on URL
                     const currentProject = currentPath.includes("Visitor_Feedback-index.php")
                         ? "Visitor-Feedback"
-                        : "ZOO_PROJECT";
+                        : "ECF2024";
 
                     const targetProject = currentProject === "Visitor-Feedback"
-                        ? "ZOO_PROJECT"
+                        ? "ECF2024"
                         : "Visitor-Feedback";
 
                     // Find the target project from the data

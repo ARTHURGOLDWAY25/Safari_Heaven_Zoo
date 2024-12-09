@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (navigateToDisplayFlex) {
         navigateToDisplayFlex.addEventListener('click', function(event) {
             event.preventDefault();
-
+            
             fetch("js/projects.json")
                 .then(response => {
                     if (!response.ok) {
