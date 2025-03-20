@@ -67,11 +67,11 @@ try {
 } catch (PDOException $e) {
     echo "Connection to server failed: " . $e->getMessage();
 }
+
 ?>
 
 
-
-
+ 
 
 
 

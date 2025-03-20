@@ -80,6 +80,8 @@
                 <div class="col-md-12">
                     <form class="user-feedback-form" action="./user-db.php" method="post">
                         <div class="user-rows mb-3">
+                            <!-- CSRF token will be injected here -->
+                            <input type="hidden" name="csrf_token" id="scrf_token">
                             <label for="first-name" class="form-label">First Name</label>
                             <input type="text" id="first-name" name="first-name" placeholder="First Name" class="form-control" required>
                         </div>
@@ -177,6 +179,25 @@
 </script>
 
 <script src="./js/reverse-navigate.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+        fetch("/csrf_token.php")
+        .then(response=>{
+            if(response.ok){
+                return response.json()
+            }else{
+                throw new Error("Could not fetch the csrf token")
+            }
+        })
+        .then(data => {
+            // Ensure the token is correctly set in the hidden input field
+            document.getElementById('csrf_token').value = data.csrf_token
+        })
+        .catch(error => console.error("Error fetching CSRF token:", error));
+    })
+    
+</script>
 
 
 </body>

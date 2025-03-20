@@ -18,35 +18,41 @@ try {
 
     // Handle POST requests
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        // CSRF Token Validation (Fixing typo)
+        if (!isset($_POST["csrf_token"]) || $_POST["csrf_token"] !== $_SESSION["csrf_token"]) {
+            die("Erreur CSRF - Requête interdite !");
+        }
+
         // Sanitize inputs
         $first_name = filter_input(INPUT_POST, 'first_name', FILTER_SANITIZE_SPECIAL_CHARS);
         $last_name = filter_input(INPUT_POST, 'last_name', FILTER_SANITIZE_SPECIAL_CHARS);
         $textarea = filter_input(INPUT_POST, 'textarea', FILTER_SANITIZE_SPECIAL_CHARS);  
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
 
-        // Validate email
-        if ($email === false || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "Please enter a valid email address";
+        // Validate email and required fields
+        if (!$first_name || !$last_name || !$textarea || !$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo "Please fill all fields correctly.";
+            exit;
+        }
+
+        // Check if user already exists
+        $existingUser = $collection->findOne(['email' => $email]);
+
+        if ($existingUser) {
+            echo "User already exists";
         } else {
-            // Check if user already exists
-            $existingUser = $collection->findOne(['email' => $email]);
+            // Insert user data
+            $result = $collection->insertOne([
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'textarea' => $textarea,
+                'email' => $email
+            ]);
 
-            if ($existingUser) {
-                echo "User already exists";
+            if ($result->getInsertedId()) {
+                echo "User added successfully";
             } else {
-                // Insert user data
-                $result = $collection->insertOne([
-                    'first_name' => $first_name,
-                    'last_name' => $last_name,
-                    'textarea' => $textarea,
-                    'email' => $email
-                ]);
-
-                if ($result->getInsertedCount() === 1) {
-                    echo "User added successfully";
-                } else {
-                    echo "Server cannot process your request";
-                }
+                echo "Server cannot process your request";
             }
         }
     } else {
